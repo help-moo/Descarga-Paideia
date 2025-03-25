@@ -2,6 +2,7 @@
 
 Si estas aquí. sabes para qué sirve. 
 
+
 ## ✅ Requisitos previos
 
 Antes de comenzar, asegúrate de tener instalados en tu equipo:
@@ -24,6 +25,7 @@ Antes de comenzar, asegúrate de tener instalados en tu equipo:
 | 4. Ingresa al folder del proyecto y sigue las instrucciones de instalación. |                                                                                  |
 
 
+
 ##  I. Configuración del entorno virtual
 
 Se recomienda utilizar un entorno virtual para evitar conflictos de dependencias.
@@ -36,6 +38,7 @@ Se recomienda utilizar un entorno virtual para evitar conflictos de dependencias
 | 3. Crear el entorno virtual: `python -m venv venv`          | 3. Crear el entorno virtual: `python3 -m venv venv`          |
 | 4. Activar el entorno virtual: `venv\Scripts\activate`      | 4. Activar el entorno virtual: `source venv/bin/activate`    |
 | 5. Instalar dependencias: `pip install -r requirements.txt` | 5. Instalar dependencias: `pip3 install -r requirements.txt` |
+
 
 ## II. Configuración del archivo `config.py`
 
@@ -54,6 +57,7 @@ DOWNLOAD_DIR = ''
 > ⚠️ **Importante:**
 > Por seguridad, los datos de `USERNAME` y `PASSWORD` se eliminarán automáticamente del `config.py` al finalizar la ejecución del script.
 
+
 ## III. Ejecutar el script
  
 Con el entorno virtual activo y `config.py` configurado, ejecuta el script con:
@@ -68,7 +72,8 @@ En Linux/macOS, si es necesario, usa `python3 main.py`.
 > Descargar los cursos (**2013 y 2020**) tomó aproximadamente **una hora y 15 minutos** 
 > -*según un cronómetro*
 
----
+
+
 ## IV. Estructura del *output* (carpeta de descarga)
 
 Todos los recursos se descargarán y organizarán con la siguiente estructura:
@@ -99,6 +104,7 @@ Descarga_cursos_historicos
 > 💡 **Recuerda:**
 > El script descargará **todos los recursos disponibles** (PDFs, DOCX, PPTX,, etc.) de cada curso.
 
+
 ##  V. Sobre `registro_descargas.xlsx`
  
 Dentro de la carpeta de descarga encontrarás un archivo llamado **`registro_descargas.xlsx`**, que:
@@ -112,6 +118,7 @@ Dentro de la carpeta de descarga encontrarás un archivo llamado **`registro_des
 	- Enlaces a páginas web.
 	
 - Funciona como un **registro de control** y una guía para que puedas completar esas descargas manualmente si lo deseas.
+
 
 ## VI. Personalización y soporte  
 
