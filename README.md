@@ -16,15 +16,23 @@ Antes de comenzar, asegúrate de tener instalados en tu equipo:
 
 ## 3. Descargar e instalar el proyecto
 
-| **Instalación mediante `git clone`**                                        | **Descargar desde la sección *Releases***                                        |
-| --------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| 1. Abre tu terminal (CMD, PowerShell o terminal de Linux/macOS).            | 1. Ve a la página de [Releases del repositorio](<URL_DEL_REPOSITORIO>/releases). |
-| 2. Navega hasta el folder donde deseas descargar el proyecto.               | 2. Descarga el archivo comprimido (ZIP)                                          |
-| 3. Ejecuta el siguiente comando:                                            | 3. Extrae el contenido del archivo descargado en la carpeta que prefieras.       |
-| ```bash<br>git clone <URL_DEL_REPOSITORIO><br>```                           | 4. Ingresa al folder extraído y sigue las instrucciones de instalación.          |
-| 4. Ingresa al folder del proyecto y sigue las instrucciones de instalación. |                                                                                  |
+### Instalación mediante `git clone`
 
+1. Abre tu terminal (CMD, PowerShell o terminal de Linux/macOS).
+2. Navega hasta el directorio donde deseas clonar el proyecto.
+3. Ejecuta el siguiente comando:
 
+```bash
+git clone https://github.com/help-moo/Descarga-Paideia.git
+```
+
+4. Ingresa al directorio del proyecto:
+
+```bash
+cd Descarga-Paideia
+```
+
+5. Sigue las instrucciones de instalación o configuración indicadas en el repositorio.
 
 ##  I. Configuración del entorno virtual
 
