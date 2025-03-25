@@ -23,7 +23,7 @@ Antes de comenzar, asegúrate de tener instalados en tu equipo:
 | ```bash<br>git clone <URL_DEL_REPOSITORIO><br>```                           | 4. Ingresa al folder extraído y sigue las instrucciones de instalación.          |
 | 4. Ingresa al folder del proyecto y sigue las instrucciones de instalación. |                                                                                  |
 
----
+
 ##  I. Configuración del entorno virtual
 
 Se recomienda utilizar un entorno virtual para evitar conflictos de dependencias.
@@ -37,19 +37,14 @@ Se recomienda utilizar un entorno virtual para evitar conflictos de dependencias
 | 4. Activar el entorno virtual: `venv\Scripts\activate`      | 4. Activar el entorno virtual: `source venv/bin/activate`    |
 | 5. Instalar dependencias: `pip install -r requirements.txt` | 5. Instalar dependencias: `pip3 install -r requirements.txt` |
 
----
 ## II. Configuración del archivo `config.py`
 
   Antes de ejecutar `main.py`, abre el archivo `config.py` y completa lo siguiente:
 
 ```python
 USERNAME = '' 
-
-##### "
-# Reemplazar con tu usuario de Paideia
-PASSWORD = '' # Reemplazar con tu contraseña de Paideia
-
-DOWNLOAD_DIR = '' # (Opcional) Directorio donde se descargará la información
+PASSWORD = '' 
+DOWNLOAD_DIR = ''
 ```
 
 - **USERNAME:** tu usuario de la plataforma Paideia.
@@ -59,23 +54,19 @@ DOWNLOAD_DIR = '' # (Opcional) Directorio donde se descargará la información
 > ⚠️ **Importante:**
 > Por seguridad, los datos de `USERNAME` y `PASSWORD` se eliminarán automáticamente del `config.py` al finalizar la ejecución del script.
 
----
-## ▶️ III. Ejecutar el script
+## III. Ejecutar el script
  
 Con el entorno virtual activo y `config.py` configurado, ejecuta el script con:
  
 ```bash
 python main.py
 ```
-> 					En Linux/macOS, si es necesario, usa `python3 main.py`.
 
-
->⚠️ **Este proceso puede demorar** dependiendo de la cantidad de cursos asociados a tu cuenta.
-> 										Si ves que tarda mucho… probablemente seas **una sede** .
+En Linux/macOS, si es necesario, usa `python3 main.py`.
 
 > ℹ️ **Dato realista:**
 > Descargar los cursos (**2013 y 2020**) tomó aproximadamente **una hora y 15 minutos** 
-> 																																														-*según un cronómetro*
+> -*según un cronómetro*
 
 ---
 ## IV. Estructura del *output* (carpeta de descarga)
@@ -108,7 +99,6 @@ Descarga_cursos_historicos
 > 💡 **Recuerda:**
 > El script descargará **todos los recursos disponibles** (PDFs, DOCX, PPTX,, etc.) de cada curso.
 
----
 ##  V. Sobre `registro_descargas.xlsx`
  
 Dentro de la carpeta de descarga encontrarás un archivo llamado **`registro_descargas.xlsx`**, que:
@@ -123,17 +113,12 @@ Dentro de la carpeta de descarga encontrarás un archivo llamado **`registro_des
 	
 - Funciona como un **registro de control** y una guía para que puedas completar esas descargas manualmente si lo deseas.
 
---- 
 ## VI. Personalización y soporte  
 
 El código está **comentado línea por línea** para que puedas **modificarlo y adaptarlo.
 
 👉 **Si encuentras bugs, errores o cualquier problema durante la ejecución, o tienes sugerencias de mejora, no dudes en reportarlo.**
 
----
 ## Referencias 
 
 > Este proyecto fue desarrollado utilizando asistencia de **GitHub Copilot** y **ChatGPT** para la redacción, depuración y documentación. 🤖
-
-
-> 					🄯 **Copyleft**: Siéntete libre de usarlo, modificarlo y compartirlo.
