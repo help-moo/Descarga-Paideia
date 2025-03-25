@@ -14,7 +14,7 @@ Antes de comenzar, asegúrate de tener instalados en tu equipo:
 2. **Google Chrome**
 	- Descarga desde: [https://www.google.com/chrome/](https://www.google.com/chrome/)
 
-## 3. Descargar e instalar el proyecto
+3. Descargar e instalar el proyecto
 
 ### Instalación mediante `git clone`
 
