@@ -50,20 +50,85 @@ Se recomienda utilizar un entorno virtual para evitar conflictos de dependencias
 
 ## II. Configuración del archivo `config.py`
 
-  Antes de ejecutar `main.py`, abre el archivo `config.py` y completa lo siguiente:
+Antes de ejecutar `main.py`, abre el archivo `config.py` y completa lo siguiente:
 
 ```python
-USERNAME = '' 
-PASSWORD = '' 
-DOWNLOAD_DIR = ''
+USUARIX = '' 
+CONTRASEÑA = '' 
+DIRECTORIO_DESCARGAS = ''
+CURSOS_A_DESCARGAR = "soc, lenguaje, 2021"  # Ejemplo: Selecciona cursos con "soc", "lenguaje", o "2021" en el nombre
+CURSOS_A_EXCLUIR = "teoría"  # Ejemplo: Excluye cursos con "teoría" en el nombre
 ```
 
-- **USERNAME:** tu usuario de la plataforma Paideia.
-- **PASSWORD:** tu contraseña de Paideia.
-- **DOWNLOAD_DIR:** *(opcional)* Si lo dejas vacío (`''`), la carpeta de descarga será el mismo directorio donde se encuentra `main.py`.
+### Configuración de `CURSOS_A_DESCARGAR` y `CURSOS_A_EXCLUIR`
+
+1. **`CURSOS_A_DESCARGAR`**:
+   - Lista de palabras clave separadas por comas para seleccionar los cursos que deseas descargar.
+   - El script buscará cursos cuyos nombres contengan alguna de estas palabras clave.
+   - **Ejemplo**:
+     ```python
+     CURSOS_A_DESCARGAR = "soc, lenguaje, 2021"
+     ```
+     - Seleccionará cursos como:
+       - `"2021-1 PROCESOS SOCIALES CONTEMPORÁNEOS"`
+       - `"2021-1 LENGUAJE Y SOCIEDAD"`
+       - Cualquier curso del año 2021.
+
+2. **`CURSOS_A_EXCLUIR`**:
+   - Lista de palabras clave separadas por comas para excluir cursos que no deseas descargar.
+   - Si un curso coincide con alguna palabra clave, será excluido.
+   - **Ejemplo**:
+     ```python
+     CURSOS_A_EXCLUIR = "teoría"
+     ```
+     - Excluirá cursos como `"2021-1 TEORÍA SOCIOLÓGICA"`.
+
+3. **Cómo funcionan juntas**:
+   - Primero, el script selecciona los cursos que coincidan con `CURSOS_A_DESCARGAR`.
+   - Luego, excluye los cursos que coincidan con `CURSOS_A_EXCLUIR`.
+
+### Notas importantes:
+- Las palabras clave no distinguen entre mayúsculas y minúsculas.
+- Si `CURSOS_A_DESCARGAR` está vacío, se descargarán **todos los cursos disponibles**.
+- Si `CURSOS_A_EXCLUIR` está vacío, no se excluirá ningún curso.
+
+```python
+# Ejemplo completo:
+CURSOS_A_DESCARGAR = "soc, lenguaje, 2021"
+CURSOS_A_EXCLUIR = "teoría, matemáticas"
+```
+- Este ejemplo seleccionará cursos que contengan `"soc"`, `"lenguaje"`, o `"2021"`, pero excluirá aquellos que contengan `"teoría"` o `"matemáticas"`.
+
+> 💡 **Consejo**: Usa palabras clave específicas para evitar descargar cursos innecesarios.
+
+### Ejemplos de patrones regex
+
+1. **`r"2021-1 .*SOCIAL.*"`**: Selecciona cursos del periodo `2021-1` que contienen "SOCIAL" en el nombre.
+   - Ejemplo: `"2021-1 PROCESOS SOCIALES CONTEMPORÁNEOS (SOC726-0001)"`
+
+2. **`r"2021-1 .*SOC689.*"`**: Selecciona cursos del periodo `2021-1` con el código `SOC689`.
+   - Ejemplo: `"2021-1 TEORÍA SOCIOLÓGICA (SOC689-0001)"`
+
+3. **`r".*TEORÍA.*"`**: Selecciona cualquier curso que contenga "TEORÍA" en el nombre, sin importar el periodo.
+   - Ejemplo: `"2021-1 TEORÍA SOCIOLÓGICA (SOC689-0001)"`
+
+4. **`r"2020-2 .*"`**: Selecciona todos los cursos del periodo `2020-2`.
+   - Ejemplo: `"2020-2 HISTORIA DEL ARTE (ART123-0001)"`
+
+5. **`r".*SOC.*"`**: Selecciona todos los cursos cuyo código contiene "SOC".
+   - Ejemplo: `"2021-1 PROCESOS SOCIALES CONTEMPORÁNEOS (SOC726-0001)"`
+
+6. **`r".*0001.*"`**: Selecciona cursos con el código de sección `0001`.
+   - Ejemplo: `"2021-1 TEORÍA SOCIOLÓGICA (SOC689-0001)"`
+
+> 💡 **Nota**: Los patrones regex son sensibles a mayúsculas y minúsculas. Si necesitas que no lo sean, puedes usar el modificador `(?i)` al inicio del patrón. Por ejemplo: `r"(?i).*teoría.*"`.
+
+- **USUARIX:** tu usuario de la plataforma Paideia.
+- **CONTRASEÑA:** tu contraseña de Paideia.
+- **DIRECTORIO_DESCARGAS:** *(opcional)* Si lo dejas vacío (`''`), la carpeta de descarga será el mismo directorio donde se encuentra `main.py`.
  
 > ⚠️ **Importante:**
-> Por seguridad, los datos de `USERNAME` y `PASSWORD` se eliminarán automáticamente del `config.py` al finalizar la ejecución del script.
+> Por seguridad, los datos de `USUARIX` y `CONTRASEÑA` se eliminarán automáticamente del `config.py` al finalizar la ejecución del script.
 
 
 ## III. Ejecutar el script
@@ -137,3 +202,30 @@ El código está **comentado línea por línea** para que puedas **modificarlo y
 ## Referencias 
 
 > Este proyecto fue desarrollado utilizando asistencia de **GitHub Copilot** y **ChatGPT** para la redacción, depuración y documentación. 🤖
+
+---
+
+## ⚠️ Problemas comunes y soluciones
+
+### 1. **Permisos insuficientes para crear archivos o carpetas**
+   - **Problema**: El script intenta crear carpetas o archivos en un directorio donde no tienes permisos de escritura.
+   - **Solución**: Asegúrate de que `DIRECTORIO_DESCARGAS` en `config.py` apunte a un directorio donde tengas permisos de escritura, como tu carpeta de usuario.
+
+### 2. **Problemas con ChromeDriver**
+   - **Problema**: El script no puede iniciar el navegador debido a permisos insuficientes para ejecutar ChromeDriver.
+   - **Solución**: Asegúrate de que el archivo `chromedriver` tenga permisos de ejecución:
+     - En Linux/macOS:
+       ```bash
+       chmod +x /ruta/a/chromedriver
+       ```
+     - En Windows:
+       - Asegúrate de que `chromedriver.exe` esté ubicado en un directorio accesible y no protegido por el sistema.
+
+### 3. **El sistema entra en suspensión**
+   - **Problema**: El sistema se suspende durante la ejecución del script, interrumpiendo el proceso.
+   - **Solución**: Configura tu sistema para evitar la suspensión mientras el script está en ejecución:
+     - En Windows: Cambia la configuración de energía en el Panel de Control.
+     - En macOS/Linux: Usa el comando `caffeinate`:
+       ```bash
+       caffeinate -i python main.py
+       ```
