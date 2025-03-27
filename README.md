@@ -60,6 +60,13 @@ CURSOS_A_DESCARGAR = "soc, lenguaje, 2021"  # Ejemplo: Selecciona cursos con "so
 CURSOS_A_EXCLUIR = "teoría"  # Ejemplo: Excluye cursos con "teoría" en el nombre
 ```
 
+- **USUARIX:** tu usuario de la plataforma Paideia.
+- **CONTRASEÑA:** tu contraseña de Paideia.
+- **DIRECTORIO_DESCARGAS:** *(opcional)* Si lo dejas vacío (`''`), la carpeta de descarga será el mismo directorio donde se encuentra `main.py`.
+ 
+> ⚠️ **Importante:**
+> Por seguridad, los datos de `USUARIX` y `CONTRASEÑA` se eliminarán automáticamente del `config.py` al finalizar la ejecución del script.
+
 ### Configuración de `CURSOS_A_DESCARGAR` y `CURSOS_A_EXCLUIR`
 
 1. **`CURSOS_A_DESCARGAR`**:
@@ -122,13 +129,6 @@ CURSOS_A_EXCLUIR = "teoría, matemáticas"
    - Ejemplo: `"2021-1 TEORÍA SOCIOLÓGICA (SOC689-0001)"`
 
 > 💡 **Nota**: Los patrones regex son sensibles a mayúsculas y minúsculas. Si necesitas que no lo sean, puedes usar el modificador `(?i)` al inicio del patrón. Por ejemplo: `r"(?i).*teoría.*"`.
-
-- **USUARIX:** tu usuario de la plataforma Paideia.
-- **CONTRASEÑA:** tu contraseña de Paideia.
-- **DIRECTORIO_DESCARGAS:** *(opcional)* Si lo dejas vacío (`''`), la carpeta de descarga será el mismo directorio donde se encuentra `main.py`.
- 
-> ⚠️ **Importante:**
-> Por seguridad, los datos de `USUARIX` y `CONTRASEÑA` se eliminarán automáticamente del `config.py` al finalizar la ejecución del script.
 
 
 ## III. Ejecutar el script
